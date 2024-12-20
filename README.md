@@ -42,6 +42,7 @@ See [Section 4.5](#45-how-to-fall-back-to-blacks-behavior) below for more detail
   - [3.7. Collapse nested brackets](#37-collapse-nested-brackets)
   - [3.8. Wrapping long lines ending with comments](#38-wrapping-long-lines-ending-with-comments)
   - [3.9. Keep blank lines in brackets](#39-keep-blank-lines-in-brackets)
+  - [3.10. Keep double lines between methods](#310-keep-blank-lines-in-brackets)
 - [4. How to configure _Cercis_](#4-how-to-configure-cercis)
   - [4.1. Dynamically in the command line](#41-dynamically-in-the-command-line)
   - [4.2. In your project's `pyproject.toml` file](#42-in-your-projects-pyprojecttoml-file)
@@ -659,6 +660,24 @@ my_list = [
 
 (Note: if `--keep-blank-lines-in-brackets` is `True`, multiple consecutive blank lines
 are compressed into one blank line after formatting.)
+
+### 3.10. Double lines between methods
+
+This option places two empty lines between the class methods, just as it happens in
+top-level functions. Nested functions are not affected. *This is an experimental feature,
+so for example the vertical distance between a method and some other block unfortunately
+still remains as one line, which leads to not the most beautiful results if your class
+has something else besides methods. Work in progress, help is welcome.* 
+
+| Option                 |                                                             |
+| ---------------------- |-------------------------------------------------------------|
+| Name                   | `--double-lines-between-methods`                            |
+| Abbreviation           | `-dlbm`                                                     |
+| Default                | `False`                                                     |
+| Black's style          | `False`                                                     |
+| Command line usage     | `cercis -dlbm=True myScript.py`                             |
+| `pyproject.toml` usage | `double-lines-between-methods = true` under `[tool.cercis]` |
+| `pre-commit` usage     | `args: [--double-lines-between-methods=True]`               |
 
 ## 4. How to configure _Cercis_
 
