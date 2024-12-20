@@ -47,6 +47,7 @@ from cercis.const import (
     DEFAULT_FUNCTION_DEFINITION_EXTRA_INDENT,
     DEFAULT_INCLUDES,
     DEFAULT_KEEP_BLANK_LINES_IN_BRACKETS,
+    DEFAULT_DOUBLE_LINES_BETWEEN_METHODS,
     DEFAULT_LINE_LENGTH,
     DEFAULT_OTHER_LINE_CONTINUATION_EXTRA_INDENT,
     DEFAULT_SINGLE_QUOTE,
@@ -383,6 +384,14 @@ def validate_positive_integer(
     ),
 )
 @click.option(
+    "-dlbm",
+    "--double-lines-between-methods",
+    type=bool,
+    show_default=True,
+    default=DEFAULT_DOUBLE_LINES_BETWEEN_METHODS,
+    help="If True, force double lines between methods."
+)
+@click.option(
     "-t",
     "--target-version",
     type=click.Choice([v.name.lower() for v in TargetVersion]),
@@ -639,6 +648,7 @@ def main(  # noqa: C901
         wrap_comments: bool,
         wrap_pragma_comments: bool,
         keep_blank_lines_in_brackets: bool,
+        double_lines_between_methods: bool,
         base_indentation_spaces: int,
         other_line_continuation_extra_indent: bool,
         use_tabs: bool,
@@ -753,6 +763,7 @@ def main(  # noqa: C901
         wrap_comments=wrap_comments,
         wrap_pragma_comments=wrap_pragma_comments,
         keep_blank_lines_in_brackets=keep_blank_lines_in_brackets,
+        double_lines_between_methods=double_lines_between_methods,
         base_indentation_spaces=base_indentation_spaces,
         other_line_continuation_extra_indent=other_line_continuation_extra_indent,
         use_tabs=use_tabs,

@@ -17,6 +17,7 @@ from cercis.const import (
     DEFAULT_COLLAPSE_NESTED_BRACKETS,
     DEFAULT_FUNCTION_DEFINITION_EXTRA_INDENT,
     DEFAULT_KEEP_BLANK_LINES_IN_BRACKETS,
+    DEFAULT_DOUBLE_LINES_BETWEEN_METHODS,
     DEFAULT_LINE_LENGTH,
     DEFAULT_OTHER_LINE_CONTINUATION_EXTRA_INDENT,
     DEFAULT_SINGLE_QUOTE,
@@ -237,6 +238,7 @@ class Mode:
     wrap_pragma_comments: bool = DEFAULT_WRAP_PRAGMA_COMMENTS
     wrap_comments: bool = DEFAULT_WRAP_COMMENTS
     keep_blank_lines_in_brackets: bool = DEFAULT_KEEP_BLANK_LINES_IN_BRACKETS
+    double_lines_between_methods: bool = DEFAULT_DOUBLE_LINES_BETWEEN_METHODS
     base_indentation_spaces: int = DEFAULT_BASE_INDENTATION_SPACES
     other_line_continuation_extra_indent: bool = (
         DEFAULT_OTHER_LINE_CONTINUATION_EXTRA_INDENT

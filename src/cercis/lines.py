@@ -887,7 +887,14 @@ class EmptyLineTracker:
             else:
                 newlines = 0
         else:
-            newlines = 1 if current_line.depth else 2
+            if (
+                self.mode.double_lines_between_methods
+                and len(self.previous_defs) > 1
+                and (len(current_line.depth) == len(self.previous_defs[-2].depth) + 1)
+            ):
+                newlines = 2 if self.previous_defs[-2].is_class else 1
+            else:
+                newlines = 1 if current_line.depth else 2
             # If a user has left no space after a dummy implementation, don't insert
             # new lines. This is useful for instance for @overload or Protocols.
             if (
