@@ -888,7 +888,7 @@ class EmptyLineTracker:
                 newlines = 0
         else:
             if (
-                self.mode.double_lines_between_methods
+                self.mode.force_double_lines_between_methods
                 and len(self.previous_defs) > 1
                 and (len(current_line.depth) == len(self.previous_defs[-2].depth) + 1)
             ):
